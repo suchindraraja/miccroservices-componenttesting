@@ -22,6 +22,6 @@ public class MockServiceXMLResponseBodyFileName
 		System.out.println("Full response body is:\n"+res.getBody().asString());
 		XmlPath xp=res.xmlPath();
 		String x=xp.getString("**.findAll{it.name()=='NumberToDollarsResult'}");
-		System.out.println(x);
+		System.out.println("Parsed value via xml path expression is: \n"+x);
 	}
 }
