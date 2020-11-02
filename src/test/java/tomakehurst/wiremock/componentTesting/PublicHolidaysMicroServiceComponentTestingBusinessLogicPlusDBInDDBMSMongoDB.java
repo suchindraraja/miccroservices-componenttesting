@@ -1,4 +1,4 @@
-package tomakehurst.componentTesting;
+package tomakehurst.wiremock.componentTesting;
 
 import java.util.ArrayList;
 import java.util.List;

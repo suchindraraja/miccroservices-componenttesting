@@ -1,13 +1,14 @@
-package tomakehurst.componentTesting;
+package tomakehurst.wiremock.componentTesting;
+
+import org.json.JSONObject;
 
 import io.restassured.RestAssured;
-import io.restassured.authentication.PreemptiveBasicAuthScheme;
 import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class MockServiceRequestHeadersBasicAuth
+public class MockServiceRequestBodyParametersBodyPatterns 
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -15,19 +16,19 @@ public class MockServiceRequestHeadersBasicAuth
 		//Before starting, mock server can completely check the files in Mappings folder
 		//Connect to mock service to get required output
 		
-		RestAssured.baseURI="http://localhost:9999/authperson";
-		//Provide credentials
-		PreemptiveBasicAuthScheme auth=new PreemptiveBasicAuthScheme();
-		auth.setUserName("kalam@example.com");
-		auth.setPassword("apjabdulkalam");
-		RestAssured.authentication=auth;
-		//create and send request to get response
+		RestAssured.baseURI="http://localhost:9999/myform";
 		RequestSpecification req=RestAssured.given();
-		Response res=req.request(Method.GET,"");
+		//Pack parameters with values and then attach to request body
+		JSONObject jo=new JSONObject();
+		jo.put("rollNumber","11");
+		jo.put("name","kalam");
+		req.body(jo.toString());
+		//Send request and get response
+		Response res=req.request(Method.POST,"");
 		System.out.println(res.getStatusCode());
 		System.out.println(res.getBody().asString());
 		JsonPath jp=res.jsonPath();
-		String sid=jp.getString("session_id");
-		System.out.println(sid);
+		String id=jp.getString("id");
+		System.out.println(id);
 	}
 }

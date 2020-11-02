@@ -1,4 +1,4 @@
-package tomakehurst.componentTesting;
+package tomakehurst.wiremock.componentTesting;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;

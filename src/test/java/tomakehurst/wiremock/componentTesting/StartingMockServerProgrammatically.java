@@ -1,4 +1,4 @@
-package tomakehurst.componentTesting;
+package tomakehurst.wiremock.componentTesting;
 
 public class StartingMockServerProgrammatically
 {

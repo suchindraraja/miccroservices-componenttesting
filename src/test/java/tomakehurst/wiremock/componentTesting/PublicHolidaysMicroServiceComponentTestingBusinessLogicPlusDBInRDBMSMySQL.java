@@ -1,4 +1,4 @@
-package tomakehurst.componentTesting;
+package tomakehurst.wiremock.componentTesting;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
