@@ -28,6 +28,9 @@ public class MockServiceResponseHeaders
 		{
 			System.out.println(h.getName()+"-->"+h.getValue());
 		}
+		//Get Specific header
+		String h1=mockresponse.getHeader("Shwetha");
+		System.out.println("Specific header value is: "+h1);
 		String mockresult=mockresponse.getBody().asString();
 		System.out.println("\nResponse body is :\n"+mockresult);
 	}
